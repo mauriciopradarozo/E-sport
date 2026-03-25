@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Sport Amateur Training Hub</title>
 
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: white;
+}
+
+header {
+    background: #1e293b;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #020617;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #38bdf8;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 30px;
+    border-bottom: 1px solid #334155;
+}
+
+h2 {
+    color: #38bdf8;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: #38bdf8;
+    color: black;
+    cursor: pointer;
+}
+
+.card {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 E-Sport Amateur Training Hub</h1>
+    <p>Mejora tu rendimiento y compite al siguiente nivel</p>
+</header>
+
+<nav>
+    <a href="#registro">Inscripción</a>
+    <a href="#test">Test Físico</a>
+    <a href="#entrenamiento">Entrenamiento</a>
+    <a href="#eventos">Eventos</a>
+</nav>
+
+<!-- REGISTRO -->
+<section id="registro">
+    <h2>📋 Inscripción</h2>
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="number" id="edad" placeholder="Edad">
+    <select id="juego">
+        <option>League of Legends</option>
+        <option>Valorant</option>
+        <option>FIFA</option>
+        <option>Call of Duty</option>
+    </select>
+    <button onclick="registrar()">Registrarse</button>
+
+    <p id="resultadoRegistro"></p>
+</section>
+
+<!-- TEST -->
+<section id="test">
+    <h2>📊 Test de Valoración Física</h2>
+
+    <p>Horas de juego al día:</p>
+    <input type="number" id="horas">
+
+    <p>Horas de actividad física semanal:</p>
+    <input type="number" id="actividad">
+
+    <p>Horas de sueño:</p>
+    <input type="number" id="sueno">
+
+    <button onclick="evaluar()">Evaluar</button>
+
+    <h3 id="resultadoTest"></h3>
+</section>
+
+<!-- ENTRENAMIENTO -->
+<section id="entrenamiento">
+    <h2>🏋️ Programa de Entrenamiento</h2>
+
+    <div class="card">
+        <h3>🎯 Nivel Bajo</h3>
+        <p>• Caminata 20 min diaria</p>
+        <p>• Ejercicios de reacción (apps)</p>
+        <p>• Dormir mínimo 7 horas</p>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Nivel Medio</h3>
+        <p>• Entrenamiento funcional 3 días/semana</p>
+        <p>• Rutinas de coordinación ojo-mano</p>
+        <p>• Control del estrés</p>
+    </div>
+
+    <div class="card">
+        <h3>🔥 Nivel Alto</h3>
+        <p>• HIIT + fuerza</p>
+        <p>• Entrenamiento cognitivo avanzado</p>
+        <p>• Plan nutricional</p>
+    </div>
+</section>
+
+<!-- EVENTOS -->
+<section id="eventos">
+    <h2>🏆 Eventos y Competiciones</h2>
+
+    <div class="card">
+        <h3>Torneo Amateur Valorant</h3>
+        <p>📅 Fecha: 20 Junio</p>
+        <p>💰 Premio: $500 USD</p>
+    </div>
+
+    <div class="card">
+        <h3>Liga Universitaria FIFA</h3>
+        <p>📅 Fecha: 5 Julio</p>
+        <p>🏆 Clasificatorio nacional</p>
+    </div>
+
+    <div class="card">
+        <h3>Open Battle Royale</h3>
+        <p>📅 Fecha: 15 Agosto</p>
+        <p>🎮 Modalidad: Squad</p>
+    </div>
+</section>
+
+<script>
+function registrar() {
+    let nombre = document.getElementById("nombre").value;
+    let edad = document.getElementById("edad").value;
+    let juego = document.getElementById("juego").value;
+
+    document.getElementById("resultadoRegistro").innerHTML =
+        "Jugador " + nombre + " registrado en " + juego;
+}
+
+function evaluar() {
+    let horas = document.getElementById("horas").value;
+    let actividad = document.getElementById("actividad").value;
+    let sueno = document.getElementById("sueno").value;
+
+    let resultado = "";
+
+    if (horas > 6 && actividad < 2 && sueno < 6) {
+        resultado = "⚠️ Bajo rendimiento - Riesgo alto";
+    } else if (actividad >= 3 && sueno >= 7) {
+        resultado = "✅ Buen rendimiento";
+    } else {
+        resultado = "⚖️ Rendimiento moderado";
+    }
+
+    document.getElementById("resultadoTest").innerHTML = resultado;
+}
+</script>
+
+</body>
+</html>
